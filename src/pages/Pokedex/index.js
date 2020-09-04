@@ -16,6 +16,7 @@ export const Pokedex = () => {
   const pageLimit = 20;
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [paginatorVisible, setPaginatorVisible] = useState(true);
 
   //Api request
   useEffect(() => {
@@ -26,8 +27,10 @@ export const Pokedex = () => {
 
   useEffect(() => {
     if (searchItem === "") {
+      setPaginatorVisible(true);
       setShow(pokemons.slice(offset, offset + pageLimit));
     } else {
+      setPaginatorVisible(false);
       const results = pokemons.filter((pokemon) =>
         pokemon.name.includes(searchItem.toLowerCase())
       );
@@ -62,14 +65,17 @@ export const Pokedex = () => {
           return <Card pokemon={pokemon} key={pokemon.name} />;
         })}
       </div>
-      <Paginator
-        totalRecords={pokemons.length}
-        pageLimit={pageLimit}
-        pageNeighbours={2}
-        setOffset={setOffset}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+
+      {paginatorVisible && (
+        <Paginator
+          totalRecords={pokemons.length}
+          pageLimit={pageLimit}
+          pageNeighbours={2}
+          setOffset={setOffset}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
     </div>
   );
 };
