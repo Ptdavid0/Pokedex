@@ -1,14 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import Routes from "./routes";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Header from "./shared/Header";
+import App from "./App";
 
 ReactDOM.render(
-  <>
-    {/* <Header /> */}
-    <Routes />
-  </>,
-  document.getElementById("root")
+  <App />,document.getElementById("root")
 );

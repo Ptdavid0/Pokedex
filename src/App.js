@@ -1,8 +1,15 @@
 import React from "react";
 import "./App.scss";
+import { Provider } from "react-redux";
+import Routes from "./routes";
+import store from "./store";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
 }
 
 export default App;

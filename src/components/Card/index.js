@@ -4,8 +4,10 @@ import { api } from "../../services/Api";
 import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 
+
 const Card = (props) => {
   const pokemon = props.pokemon;
+ 
 
   //Basic Pokemon Info
   const [pokeData, setPokeData] = useState([]);
@@ -26,7 +28,6 @@ const Card = (props) => {
 
   useEffect(() => {
     api.get(`/pokemon/${pokemon.name}`).then((response) => {
-      // console.log(response.data);
       setPokeData(response.data);
     });
   }, [pokemon.name]);
@@ -35,7 +36,7 @@ const Card = (props) => {
     api
       .get(pokeData && pokeData.id && `/pokemon-species/${pokeData.id}`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setBaseHappiness(response.data.base_happiness);
         setCaptureRate(response.data.capture_rate);
         setDescription(
@@ -113,7 +114,6 @@ const Card = (props) => {
               }
               alt="Pokemon"
             />
-
             <div>{pokeName}</div>
           </Modal.Title>
         </Modal.Header>
@@ -137,8 +137,10 @@ const Card = (props) => {
               <p>{captureRate}</p>
             </div>
           </div>
-          <div className="modal-description distancing">Description: {description}</div>
-          
+          <div className="modal-description distancing">
+            Description: {description}
+          </div>
+
           <div className="modal-pokemon-stats distancing">
             <strong>Abilities:</strong>
 
@@ -146,7 +148,7 @@ const Card = (props) => {
               pokeData.abilities &&
               pokeData.abilities.map((ability) => {
                 return (
-                  <span className="modal-poke-ability">
+                  <span className="modal-poke-ability" key={ability.ability.name}>
                     {ability.ability.name}
                   </span>
                 );
