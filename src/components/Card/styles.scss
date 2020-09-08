@@ -24,7 +24,7 @@ $dark: #7e7b7b;
   transition: 0.3s;
   font-family: "Roboto Mono", monospace;
   background-color: #eee;
-  border-radius: 20px;
+  border-radius: 0.25rem;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   margin: 10px;
   padding: 20px;
@@ -38,6 +38,10 @@ $dark: #7e7b7b;
   h1 {
     font-size: 100%;
   }
+}
+
+.poke-card:hover {
+  transform: scale(0.97);
 }
 
 .image-container {
@@ -95,7 +99,6 @@ $dark: #7e7b7b;
 }
 
 .modal-image {
-
   width: 20%;
   margin-right: 8px;
 }
@@ -110,17 +113,16 @@ $dark: #7e7b7b;
   justify-content: flex-start !important;
 }
 
-.modal-poke-ability{
+.modal-poke-ability {
   border-radius: 4px;
   // font-size: 0.8em;
-  border:1px solid #ddd;
+  border: 1px solid #ddd;
   margin: 0 5px;
   padding: 5px 10px;
   box-shadow: 0px 0px 2px 0px rgba(100, 100, 100, 0.5);
-
 }
 
-.distancing{
+.distancing {
   margin-top: 40px;
 }
 

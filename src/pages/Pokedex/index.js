@@ -6,6 +6,7 @@ import Card from "../../components/Card";
 import Paginator from "react-hooks-paginator";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import { FormControl } from "react-bootstrap";
 
 export const Pokedex = () => {
   //Initial data
@@ -51,38 +52,16 @@ export const Pokedex = () => {
   return (
     <div className="mainContainer">
       <h1>Pokedex</h1>
-
-      <div className="form__group field">
-        <input
-          type="input"
-          className="form__field"
+      <div className="headerContainer">
+        <FormControl
+          className="header-form"
           placeholder="Name"
           name="name"
           id="name"
           value={searchItem}
           onChange={(e) => handleInputChange(e.target.value)}
         />
-        <label htmlFor="name" className="form__label">
-          Name
-        </label>
-      </div>
-      <div className="pokemonCards">
-        {show.map((pokemon) => {
-          return <Card pokemon={pokemon} key={pokemon.name} />;
-        })}
-      </div>
-
-      {paginatorVisible && (
-        <>
-          <Paginator
-            totalRecords={pokemons.length}
-            pageLimit={pageLimit}
-            pageNeighbours={2}
-            setOffset={setOffset}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-
+        <div className="">
           <ToggleButtonGroup type="checkbox">
             <ToggleButton
               onClick={() => dispatch({ type: "SET_LIMIT", limit: 10 })}
@@ -100,7 +79,24 @@ export const Pokedex = () => {
               30
             </ToggleButton>
           </ToggleButtonGroup>
-        </>
+        </div>
+      </div>
+
+      <div className="pokemonCards">
+        {show.map((pokemon) => {
+          return <Card pokemon={pokemon} key={pokemon.name} />;
+        })}
+      </div>
+
+      {paginatorVisible && (
+        <Paginator
+          totalRecords={pokemons.length}
+          pageLimit={pageLimit}
+          pageNeighbours={2}
+          setOffset={setOffset}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       )}
     </div>
   );
