@@ -95,10 +95,9 @@ $dark: #7e7b7b;
 }
 
 .modal-image {
-  padding: 5px;
+
   width: 20%;
-  border-radius: 50%;
-  border: 1px solid black;
+  margin-right: 8px;
 }
 
 .modal-title {
@@ -109,6 +108,20 @@ $dark: #7e7b7b;
 .modal-header {
   border: none !important;
   justify-content: flex-start !important;
+}
+
+.modal-poke-ability{
+  border-radius: 4px;
+  // font-size: 0.8em;
+  border:1px solid #ddd;
+  margin: 0 5px;
+  padding: 5px 10px;
+  box-shadow: 0px 0px 2px 0px rgba(100, 100, 100, 0.5);
+
+}
+
+.distancing{
+  margin-top: 40px;
 }
 
 //For Background Color

@@ -118,34 +118,40 @@ const Card = (props) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-container">
-          <div className="basic-modal-info">
-            <div>
-              <strong className={`${pokeTypes[0]}-color`}>Weight</strong>
-              <p>{weight}.0kg</p>
-            </div>
-            <div>
-              <strong className={`${pokeTypes[0]}-color`}>Height</strong>
-              <p>{height}.0m</p>
-            </div>
+          <div className="basic-modal-info distancing">
             <div>
               <strong className={`${pokeTypes[0]}-color`}> Happiness</strong>
               <p>{baseHappiness}</p>
             </div>
             <div>
+              <strong className={`${pokeTypes[0]}-color`}>Weight</strong>
+              <p>{weight}kg</p>
+            </div>
+            <div>
+              <strong className={`${pokeTypes[0]}-color`}>Height</strong>
+              <p>{height}m</p>
+            </div>
+
+            <div>
               <strong className={`${pokeTypes[0]}-color`}>Capture Rate</strong>
               <p>{captureRate}</p>
             </div>
           </div>
-          <div className="modal-description">Description: {description}</div>
-          <div className="modal-pokemon-stats"></div>
-          <span>
-            Abilities:
+          <div className="modal-description distancing">Description: {description}</div>
+          
+          <div className="modal-pokemon-stats distancing">
+            <strong>Abilities:</strong>
+
             {pokeData &&
               pokeData.abilities &&
               pokeData.abilities.map((ability) => {
-                return `${ability.ability.name} `;
+                return (
+                  <span className="modal-poke-ability">
+                    {ability.ability.name}
+                  </span>
+                );
               })}
-          </span>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
