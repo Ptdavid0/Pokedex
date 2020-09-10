@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 function pageLimit(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "SET_LIMIT":
-      return {  data: action.limit };
+      return {  ...state,data: action.limit };
     default:
       return state;
   }

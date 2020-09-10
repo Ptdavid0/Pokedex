@@ -6,8 +6,8 @@ import App from "./App";
 const Routes = () => {
   return (
     <Router>
-      <Route exact path="/" component={App}></Route>
-      <Route path="/pokedex" component={Pokedex}></Route>
+      <Route exact path="/" component={Pokedex}></Route>
+      {/* <Route path="/pokedex" component={Pokedex}></Route> */}
     </Router>
   );
 };

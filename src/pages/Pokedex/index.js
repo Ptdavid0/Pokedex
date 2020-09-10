@@ -51,7 +51,7 @@ export const Pokedex = () => {
 
   return (
     <div className="mainContainer">
-      <h1>Pokedex</h1>
+      {/* <h1>Pokedex</h1> */}
       <div className="headerContainer">
         <FormControl
           className="header-form"

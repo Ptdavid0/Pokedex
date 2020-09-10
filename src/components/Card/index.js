@@ -4,10 +4,8 @@ import { api } from "../../services/Api";
 import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 
-
 const Card = (props) => {
   const pokemon = props.pokemon;
- 
 
   //Basic Pokemon Info
   const [pokeData, setPokeData] = useState([]);
@@ -104,7 +102,7 @@ const Card = (props) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="modal-header">
+          <Modal.Title >
             <img
               className=" modal-image"
               src={
@@ -148,7 +146,10 @@ const Card = (props) => {
               pokeData.abilities &&
               pokeData.abilities.map((ability) => {
                 return (
-                  <span className="modal-poke-ability" key={ability.ability.name}>
+                  <span
+                    className="modal-poke-ability"
+                    key={ability.ability.name}
+                  >
                     {ability.ability.name}
                   </span>
                 );
@@ -156,7 +157,11 @@ const Card = (props) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={handleClose}
+            className="modal-close-button"
+          >
             Close
           </Button>
         </Modal.Footer>

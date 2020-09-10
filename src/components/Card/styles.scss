@@ -109,7 +109,7 @@ $dark: #7e7b7b;
 }
 
 .modal-header {
-  border: none !important;
+  border-bottom: 1px solid #ddd;
   justify-content: flex-start !important;
 }
 
@@ -120,6 +120,12 @@ $dark: #7e7b7b;
   margin: 0 5px;
   padding: 5px 10px;
   box-shadow: 0px 0px 2px 0px rgba(100, 100, 100, 0.5);
+}
+
+.modal-close-button {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  background-color: #007bff !important;
 }
 
 .distancing {
